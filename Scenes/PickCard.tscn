@@ -1,0 +1,142 @@
+[gd_scene load_steps=24 format=3 uid="uid://jitfbj4ud8eg"]
+
+[ext_resource type="Script" path="res://Scripts/pickCard.gd" id="1_77vbp"]
+[ext_resource type="PackedScene" uid="uid://dbtf64wukuets" path="res://Scenes/Components/GameCamera.tscn" id="1_hmle4"]
+[ext_resource type="PackedScene" uid="uid://upjtaxy0q7lv" path="res://Scenes/Components/Border.tscn" id="2_or4ng"]
+[ext_resource type="Texture2D" uid="uid://bhv5usdhv626v" path="res://Assets/playingCardBacks.png" id="4_vafcm"]
+[ext_resource type="Theme" uid="uid://c6qwfhxj4kwkn" path="res://Assets/theme.tres" id="5_g0k2g"]
+[ext_resource type="Texture2D" uid="uid://cbp4v6iqdjvns" path="res://Assets/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/svg/Buttons/Square/ArrowLeft-Bold/Default-1.svg" id="6_dtgdb"]
+[ext_resource type="Texture2D" uid="uid://c3dmcnch6paw0" path="res://Assets/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/svg/Buttons/Square/ArrowLeft-Bold/Hover-1.svg" id="7_evbxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnjhh"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(0, 0, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg17a"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(140, 0, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnod3"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(280, 0, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5upfw"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(0, 190, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqauv"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(140, 190, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gs28"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(280, 190, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b6t8"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(0, 380, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpdt6"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(280, 760, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m4s0"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(280, 380, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0gtq"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(0, 760, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl076"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(140, 760, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0evfa"]
+atlas = ExtResource("4_vafcm")
+region = Rect2(140, 380, 140, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ya32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnjhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg17a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnod3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5upfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqauv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gs28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b6t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpdt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m4s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0gtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl076")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0evfa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dd2rd"]
+texture = ExtResource("6_dtgdb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qg6cf"]
+texture = ExtResource("6_dtgdb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8y4h"]
+texture = ExtResource("7_evbxo")
+
+[node name="PickCard" type="Control"]
+custom_minimum_size = Vector2(2304, 1296)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2304.0
+offset_bottom = 1296.0
+mouse_filter = 2
+script = ExtResource("1_77vbp")
+
+[node name="Camera2D" parent="." instance=ExtResource("1_hmle4")]
+offset = Vector2(1152, 648)
+
+[node name="Border" parent="." instance=ExtResource("2_or4ng")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2ya32")
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = -740.0
+offset_top = 883.0
+offset_right = -640.0
+offset_bottom = 983.0
+theme = ExtResource("5_g0k2g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dd2rd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qg6cf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w8y4h")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

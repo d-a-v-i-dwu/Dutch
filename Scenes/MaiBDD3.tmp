@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://djc1vkeri0fu0"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_pi3h2"]
+[ext_resource type="Theme" uid="uid://c6qwfhxj4kwkn" path="res://Assets/theme.tres" id="3_6csgl"]
+[ext_resource type="FontFile" uid="uid://cft5mr5doa4kr" path="res://Assets/fonts/Jaro-Regular-VariableFont_opsz.ttf" id="3_huwy8"]
+[ext_resource type="PackedScene" uid="uid://dbtf64wukuets" path="res://Scenes/Components/GameCamera.tscn" id="4_pl2s5"]
+[ext_resource type="PackedScene" uid="uid://3pxc2eko2kfj" path="res://Scenes/Components/DiscardPile.tscn" id="5_tsge6"]
+[ext_resource type="PackedScene" uid="uid://jl20b62bpxpp" path="res://Scenes/Components/PlaceholderCard.tscn" id="6_44a0f"]
+[ext_resource type="Script" path="res://Scripts/endTurnButton.gd" id="8_chpjk"]
+[ext_resource type="PackedScene" uid="uid://d1o1ccj782lux" path="res://Scenes/Components/DrawPile.tscn" id="9_ehfbj"]
+[ext_resource type="Script" path="res://Scripts/computer.gd" id="9_skpwv"]
+[ext_resource type="Script" path="res://Scripts/dutchButton.gd" id="10_ms6m2"]
+[ext_resource type="PackedScene" uid="uid://doj15uelmbb8x" path="res://Scenes/Components/InfoBox.tscn" id="13_tq73v"]
+[ext_resource type="PackedScene" uid="uid://upjtaxy0q7lv" path="res://Scenes/Components/Border.tscn" id="14_p074x"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pi3h2")
+
+[node name="Game Camera" parent="." instance=ExtResource("4_pl2s5")]
+position = Vector2(1152, 648)
+
+[node name="Border" parent="." instance=ExtResource("14_p074x")]
+offset_right = 2304.0
+offset_bottom = 1296.0
+
+[node name="EndTurnButton" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 80)
+offset_left = 1799.0
+offset_top = -628.0
+offset_right = 2049.0
+offset_bottom = -548.0
+theme = ExtResource("3_6csgl")
+theme_override_fonts/font = ExtResource("3_huwy8")
+theme_override_font_sizes/font_size = 48
+text = "End Turn"
+script = ExtResource("8_chpjk")
+
+[node name="DutchButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 80)
+offset_left = 1407.0
+offset_top = -546.0
+offset_right = 1607.0
+offset_bottom = -466.0
+theme = ExtResource("3_6csgl")
+theme_override_fonts/font = ExtResource("3_huwy8")
+theme_override_font_sizes/font_size = 48
+text = "Dutch!"
+script = ExtResource("10_ms6m2")
+
+[node name="DiscardPile" parent="." instance=ExtResource("5_tsge6")]
+position = Vector2(610, -222)
+
+[node name="PlaceholderCard" parent="." instance=ExtResource("6_44a0f")]
+position = Vector2(-266, 103)
+
+[node name="DrawPile" parent="." instance=ExtResource("9_ehfbj")]
+position = Vector2(1082, -435)
+
+[node name="Computer" type="Node" parent="."]
+script = ExtResource("9_skpwv")
+
+[node name="InfoBox" parent="." instance=ExtResource("13_tq73v")]
+offset_left = 1621.0
+offset_top = -328.0
+offset_right = 2215.0
+offset_bottom = -288.0
+
+[node name="ResultLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(1000, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -997.0
+offset_top = -640.0
+offset_right = 35.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_6csgl")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]Player:
+Computer:
+You Lost"
+fit_content = true
+scroll_active = false
+
+[node name="MenuButton" type="Button" parent="."]
+custom_minimum_size = Vector2(380, 130)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 129.0
+offset_top = -348.0
+offset_right = 509.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_6csgl")
+theme_override_fonts/font = ExtResource("3_huwy8")
+theme_override_font_sizes/font_size = 60
+text = "Main Menu"
+
+[connection signal="button_down" from="EndTurnButton" to="." method="_on_end_turn_button_button_down"]
+[connection signal="mouse_entered" from="EndTurnButton" to="." method="_on_end_turn_button_mouse_entered"]
+[connection signal="mouse_exited" from="EndTurnButton" to="." method="_on_end_turn_button_mouse_exited"]
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="button_down" from="DutchButton" to="." method="_on_dutch_button_button_down"]
+[connection signal="button_up" from="DutchButton" to="." method="_on_dutch_button_button_up"]
+[connection signal="mouse_entered" from="DutchButton" to="." method="_on_dutch_button_mouse_entered"]
+[connection signal="mouse_exited" from="DutchButton" to="." method="_on_dutch_button_mouse_exited"]
+[connection signal="pressed" from="DutchButton" to="." method="_on_dutch_button_pressed"]
+[connection signal="button_down" from="MenuButton" to="." method="_on_menu_button_button_down"]
+[connection signal="mouse_entered" from="MenuButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButton" to="." method="_on_menu_button_mouse_exited"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

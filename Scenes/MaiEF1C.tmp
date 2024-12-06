@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://djc1vkeri0fu0"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_pi3h2"]
+[ext_resource type="FontFile" uid="uid://cigepnb65j2kl" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_b3wer"]
+[ext_resource type="Script" path="res://Scripts/startGameButton.gd" id="3_q2jep"]
+[ext_resource type="PackedScene" uid="uid://dbtf64wukuets" path="res://Scenes/GameCamera.tscn" id="4_pl2s5"]
+[ext_resource type="PackedScene" uid="uid://3pxc2eko2kfj" path="res://Scenes/DiscardPile.tscn" id="5_tsge6"]
+[ext_resource type="PackedScene" uid="uid://jl20b62bpxpp" path="res://Scenes/PlaceholderCard.tscn" id="6_44a0f"]
+[ext_resource type="Script" path="res://Scripts/endTurnButton.gd" id="8_chpjk"]
+[ext_resource type="PackedScene" uid="uid://d1o1ccj782lux" path="res://Scenes/DrawPile.tscn" id="9_ehfbj"]
+[ext_resource type="Script" path="res://Scripts/computer.gd" id="9_skpwv"]
+[ext_resource type="Script" path="res://Scripts/infoLabel.gd" id="10_n6ejc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pi3h2")
+
+[node name="Start Camera" type="Camera2D" parent="."]
+position = Vector2(-1946, -1056)
+
+[node name="StartGameButton" type="Button" parent="Start Camera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -36.5
+offset_right = 144.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_b3wer")
+theme_override_font_sizes/font_size = 30
+text = "Start Game"
+script = ExtResource("3_q2jep")
+metadata/_edit_use_anchors_ = true
+
+[node name="Game Camera" parent="." instance=ExtResource("4_pl2s5")]
+position = Vector2(1152, 648)
+
+[node name="EndTurnButton" type="Button" parent="."]
+offset_left = 1528.0
+offset_top = 759.0
+offset_right = 1778.0
+offset_bottom = 836.0
+theme_override_fonts/font = ExtResource("2_b3wer")
+theme_override_font_sizes/font_size = 30
+text = "End Turn"
+script = ExtResource("8_chpjk")
+
+[node name="InfoLabel" type="RichTextLabel" parent="."]
+offset_left = -2289.0
+offset_top = 248.0
+offset_right = -1681.0
+offset_bottom = 368.0
+theme_override_fonts/normal_font = ExtResource("2_b3wer")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "You can discard a card 
+
+from your hand"
+autowrap_mode = 0
+script = ExtResource("10_n6ejc")
+
+[node name="DiscardPile" parent="." instance=ExtResource("5_tsge6")]
+position = Vector2(1386, 930)
+
+[node name="PlaceholderCard" parent="." instance=ExtResource("6_44a0f")]
+
+[node name="DrawPile" parent="." instance=ExtResource("9_ehfbj")]
+position = Vector2(1790, 557)
+
+[node name="Computer" type="Node" parent="."]
+script = ExtResource("9_skpwv")

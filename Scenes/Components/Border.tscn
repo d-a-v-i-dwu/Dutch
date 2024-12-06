@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://upjtaxy0q7lv"]
+
+[ext_resource type="Texture2D" uid="uid://ba5p6lp8i2qbq" path="res://Assets/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/svg/Bar/Background.svg" id="1_j7tt3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tq1gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7tt3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Border" type="Control"]
+custom_minimum_size = Vector2(2304, 1296)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="BorderUpper" type="AnimatedSprite2D" parent="."]
+position = Vector2(1158, 0)
+scale = Vector2(5.072, 2)
+sprite_frames = SubResource("SpriteFrames_tq1gv")
+
+[node name="BorderLower" type="AnimatedSprite2D" parent="."]
+position = Vector2(1187, 1296)
+scale = Vector2(5.072, 2)
+sprite_frames = SubResource("SpriteFrames_tq1gv")

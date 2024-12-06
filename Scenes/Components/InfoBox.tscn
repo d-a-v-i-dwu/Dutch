@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj15uelmbb8x"]
+
+[ext_resource type="Script" path="res://Scripts/infoBox.gd" id="1_bup6a"]
+[ext_resource type="Theme" uid="uid://c6qwfhxj4kwkn" path="res://Assets/theme.tres" id="2_kseok"]
+
+[node name="InfoBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 594.0
+offset_bottom = 40.0
+script = ExtResource("1_bup6a")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 594.0
+offset_bottom = 95.0
+theme = ExtResource("2_kseok")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.886275, 0.580392, 1)
+theme_override_colors/font_shadow_color = Color(0.219608, 0.172549, 0.0117647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Your turn"
+horizontal_alignment = 1
+autowrap_mode = 3

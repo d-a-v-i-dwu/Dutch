@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dka8ynopr02ed"]
+
+[ext_resource type="Texture2D" uid="uid://bm7cighotr7b0" path="res://Assets/eye_outline.png" id="1_wyhd6"]
+[ext_resource type="Script" path="res://Scripts/eye.gd" id="2_idjls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1dow"]
+atlas = ExtResource("1_wyhd6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_js01s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1dow")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Eye" type="AnimatedSprite2D"]
+position = Vector2(80, 132)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_js01s")
+script = ExtResource("2_idjls")

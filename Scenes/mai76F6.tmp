@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://djc1vkeri0fu0"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_0nn0p"]
+[ext_resource type="FontFile" uid="uid://cigepnb65j2kl" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_f0yww"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="3_rndav"]
+[ext_resource type="PackedScene" uid="uid://ce8fqipdlr32d" path="res://Scenes/pile.tscn" id="5_hkphw"]
+[ext_resource type="PackedScene" uid="uid://dbtf64wukuets" path="res://Scenes/game_camera.tscn" id="5_iajox"]
+[ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="6_78yi5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0nn0p")
+
+[node name="Start Camera" type="Camera2D" parent="."]
+position = Vector2(-1946, -1056)
+
+[node name="startGameButton" type="Button" parent="Start Camera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -36.5
+offset_right = 144.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_f0yww")
+theme_override_font_sizes/font_size = 30
+text = "Start Game"
+script = ExtResource("3_rndav")
+metadata/_edit_use_anchors_ = true
+
+[node name="Game Camera" parent="." instance=ExtResource("5_iajox")]
+position = Vector2(1152, 648)
+
+[node name="discardPile" parent="." instance=ExtResource("5_hkphw")]
+position = Vector2(1843, 977)
+
+[node name="Game Manager" type="Node" parent="."]
+script = ExtResource("6_78yi5")

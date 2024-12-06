@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://3tnmo33gn83p"]
+
+[ext_resource type="Script" path="res://Scripts/startGame.gd" id="1_dn10g"]
+[ext_resource type="Theme" uid="uid://c6qwfhxj4kwkn" path="res://Assets/theme.tres" id="2_k3l74"]
+[ext_resource type="FontFile" uid="uid://cft5mr5doa4kr" path="res://Assets/fonts/Jaro-Regular-VariableFont_opsz.ttf" id="3_kg03u"]
+[ext_resource type="PackedScene" uid="uid://upjtaxy0q7lv" path="res://Scenes/Border.tscn" id="4_2wwvq"]
+[ext_resource type="PackedScene" uid="uid://dbtf64wukuets" path="res://Scenes/GameCamera.tscn" id="5_nkgme"]
+
+[node name="StartGame" type="Control"]
+custom_minimum_size = Vector2(2304, 1296)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2304.0
+offset_bottom = 1296.0
+script = ExtResource("1_dn10g")
+
+[node name="Border" parent="." instance=ExtResource("4_2wwvq")]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 2304.0
+offset_bottom = 1296.0
+
+[node name="Camera2D" parent="." instance=ExtResource("5_nkgme")]
+offset = Vector2(1152, 648)
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -45.0
+offset_right = 158.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_k3l74")
+theme_override_fonts/font = ExtResource("3_kg03u")
+theme_override_font_sizes/font_size = 60
+text = "Start Game"
+
+[connection signal="mouse_entered" from="StartGameButton" to="." method="_on_start_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartGameButton" to="." method="_on_start_game_button_mouse_exited"]
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
