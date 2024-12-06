@@ -1,4 +1,4 @@
-##RULES
+#RULES
 
 Each player starts with four cards face down in their hand. Every card has a value, and the aim of the game is to have a hand with cards that sum to the lowest value. Ace is worth 1, 2 is worth 2, and so on. Face cards (J,Q,K) are worth 10, and
 Jokers are worth 0. 
