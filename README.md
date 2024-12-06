@@ -18,3 +18,11 @@ Jokers are worth 0.
 - If at any point you have a card with the same value as the top card in the discard pile, you can play it directly from your hand, decreasing the number of cards in your hand by one. If you draw a card with the same value as the top card in the discard pile and discard it directly, you can discard an extra card from you hand.
 
 - Face cards have abilities that trigger when you play them. A King gives an opponent an extra card in their hand. A Queen lets you look at any card in anyone's hand by holding down right click on it. A Jack lets you either look at any card, or swap one of any two player's cards the way you could swap around any two of your own cards. If you have any unplayed abilities, they will be shown in the bottom left corner.
+
+# FUTURE IMPROVEMENTS
+
+- Create an in-game tutorial
+
+- Sound effects & animations
+
+- Rigorous testing & bug checks
